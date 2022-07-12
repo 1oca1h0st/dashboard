@@ -9,6 +9,8 @@ from core.curd.demo import get_demo
 from core import schemas
 from core.configs.settings import get_settings
 
+from core.requests.demo import DemoRequests
+
 settings = get_settings()
 
 router = APIRouter()
@@ -20,6 +22,11 @@ async def index(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
 
 
+@router.get("/ping")
+async def ping_pong():
+    return {"message": "pong"}
+
+
 @router.get("/login", response_class=HTMLResponse)
 async def view_login(request: Request):
     return templates.TemplateResponse("auth/login.html", {"request": request})
@@ -27,8 +34,12 @@ async def view_login(request: Request):
 
 @router.get("/db/{t_id}", response_model=schemas.DemoBase)
 def get_demo_by_id(t_id: int, db: Session = Depends(get_db)):
-    print(type(get_demo(db, t_id)))
     return get_demo(db, t_id)
+
+
+@router.post("/validate")
+def test_validate(data: DemoRequests):
+    return {"msg": "ok"}
 
 
 @router.get("/cache")
