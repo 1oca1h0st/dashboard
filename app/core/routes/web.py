@@ -2,6 +2,8 @@ from fastapi import APIRouter, Request
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 
+from core.routes.models import test
+
 router = APIRouter()
 templates = Jinja2Templates(directory="views/templates")
 
@@ -14,3 +16,6 @@ async def index(request: Request):
 @router.get("/login", response_class=HTMLResponse)
 async def view_login(request: Request):
     return templates.TemplateResponse("auth/login.html", {"request": request})
+
+
+router.include_router(test.router, prefix="/test")
