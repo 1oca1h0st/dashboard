@@ -2,12 +2,14 @@ from fastapi import APIRouter, Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
-from typing import List
 
 from core.routes.models import test
 from core.curd.deps import get_db
 from core.curd.demo import get_demo
 from core import schemas
+from core.configs.settings import get_settings
+
+settings = get_settings()
 
 router = APIRouter()
 templates = Jinja2Templates(directory="views/templates")
@@ -27,6 +29,11 @@ async def view_login(request: Request):
 def get_demo_by_id(t_id: int, db: Session = Depends(get_db)):
     print(type(get_demo(db, t_id)))
     return get_demo(db, t_id)
+
+
+@router.get("/cache")
+def get_cache():
+    return {"msg": settings.TEST_ENV}
 
 
 router.include_router(test.router, prefix="/test")
