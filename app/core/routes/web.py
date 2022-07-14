@@ -11,9 +11,16 @@ from core.configs.settings import get_settings
 
 from core.requests.demo import DemoRequests
 
+
+def is_auth(request: Request):
+    print(request.scope["path"])
+    if request.url:
+        print("111")
+
+
 settings = get_settings()
 
-router = APIRouter()
+router = APIRouter(dependencies=[Depends(is_auth)])
 templates = Jinja2Templates(directory="views/templates")
 
 
