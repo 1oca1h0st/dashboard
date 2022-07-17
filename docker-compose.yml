@@ -1,0 +1,21 @@
+version: 3.8
+
+services:
+  redis:
+    image: redis:5.0.13-buster
+    ports:
+      - "127.0.0.1:6379:6379"
+    networks:
+      - backend
+  db:
+    image: maraiadb:10.4.17
+    ports:
+      - "127.0.0.1:3306:3306"
+    networks:
+      - backend
+
+networks:
+  frontend:
+  backend:
+
+volumes:
