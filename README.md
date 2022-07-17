@@ -16,7 +16,8 @@
 
 前端：
 
-- VUE3
+- Vue 3
+- Vue-Router
 - [tabler](https://tabler.io/) # 页面模板
 
 组件依赖
