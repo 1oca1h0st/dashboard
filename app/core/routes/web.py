@@ -11,6 +11,8 @@ from core.configs.settings import get_settings
 
 from core.requests.demo import DemoRequests
 
+from jobs.celery import add
+
 
 def is_auth(request: Request):
     print(request.scope["path"])
@@ -52,6 +54,12 @@ def test_validate(data: DemoRequests):
 @router.get("/cache")
 def get_cache():
     return {"msg": settings.TEST_ENV}
+
+
+@router.get("/celery/{a}/{b}")
+def test_celery(a: int, b: int):
+    jobs = add.delay(a, b)
+    print(jobs.get())
 
 
 router.include_router(test.router, prefix="/test")

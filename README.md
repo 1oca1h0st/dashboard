@@ -13,6 +13,7 @@
 - APScheduler # 处理定时任务
 - SQLAlchemy
 - alembic # 数据库迁移
+- celery # 队列任务
 
 前端：
 
