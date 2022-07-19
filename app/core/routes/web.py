@@ -11,6 +11,7 @@ from core.configs.settings import get_settings
 
 from core.requests.demo import DemoRequests
 
+from jobs.celery import jobs
 from jobs.celery import add
 
 
@@ -58,8 +59,14 @@ def get_cache():
 
 @router.get("/celery/{a}/{b}")
 def test_celery(a: int, b: int):
-    jobs = add.delay(a, b)
-    print(jobs.get())
+    add_job = add.delay(a, b)
+    print(add_job)
+    return {"id": str(add_job)}
+
+
+@router.get("/celery/{task_id}")
+def get_celery_task_by_id(task_id: str):
+    print(add.AsyncResult(task_id).status)
 
 
 router.include_router(test.router, prefix="/test")
