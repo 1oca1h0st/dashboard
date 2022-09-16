@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="pytest(app)" type="tests" factoryName="Autodetect">
+  <configuration default="false" name="pytest (app)" type="tests" factoryName="Autodetect">
     <module name="dashboard" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
