@@ -39,9 +39,17 @@
   - routes/ 后端 api 端点路由入口
   - schemas/
 
+
 - frontend/dashboard vue3 主入口
   - src 源文件目录
   - public 引用的第三方资源，编译时不统一打包
+
+
+- workers 命令执行模块 [后续使用celery]
+  - assets 资产扫描模块
+  - pocs
+  - tests 自动化测试文件夹
+
 
 ## 部署方法
 
