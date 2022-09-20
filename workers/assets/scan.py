@@ -75,7 +75,7 @@ class NmapScan:
 
 
 if __name__ == '__main__':
-    task = NmapScan(["113.96.62.246/24"], "22,80,8080", service_detect=True, os_detect=True)
+    task = NmapScan(["github.com"], "22,80,8080", service_detect=True, os_detect=True)
     results, err = task.run()
     if err is not None:
         print(err)
