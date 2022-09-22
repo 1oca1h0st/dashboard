@@ -1,4 +1,5 @@
 from sqlalchemy import Column, String, Integer
+
 from core.db.base_class import Base
 
 
