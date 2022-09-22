@@ -22,11 +22,13 @@ kombu==5.2.4
 loguru==0.6.0
 Mako==1.2.2
 MarkupSafe==2.1.1
+motor==3.0.0
 packaging==21.3
 pluggy==1.0.0
 prompt-toolkit==3.0.30
 py==1.11.0
 pydantic==1.9.1
+pymongo==4.2.0
 PyMySQL==1.0.2
 pyparsing==3.0.9
 pytest==7.1.2
