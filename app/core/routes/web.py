@@ -13,7 +13,7 @@ from core.curd.deps import get_db
 from core.db.mongo import mongo
 from core.requests.demo import DemoRequests
 from core.routes.models import test
-from core.schemas.mongo.demo import DemoModel
+from core.models.mongo.demo import DemoModel
 from jobs.celery import add
 
 

@@ -1,11 +1,16 @@
-from pydantic import BaseSettings
 from functools import lru_cache
+
+from pydantic import BaseSettings
 
 
 class Settings(BaseSettings):
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1qaz2wsx@localhost/fastapi?charset=utf8"
-    MONGO_DATABASE_URI = "mongodb://root:1QAZ2wsx@localhost/?retryWrites=true&w=majority"
     TEST_ENV: str
+
+    MONGO_DB_HOST: str
+    MONGO_DB_NAME: str
+    MONGO_DB_USER: str
+    MONGO_DB_PWD: str
 
     class Config:
         """
