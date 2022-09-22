@@ -4,6 +4,7 @@ anyio==3.6.1
 APScheduler==3.9.1
 async-timeout==4.0.2
 attrs==21.4.0
+beanie==1.11.10
 billiard==3.6.4.0
 celery==5.2.7
 certifi==2022.6.15
@@ -13,6 +14,7 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.2.0
 Deprecated==1.2.13
+dnspython==2.2.1
 fastapi==0.78.0
 h11==0.13.0
 idna==3.3
@@ -23,6 +25,7 @@ loguru==0.6.0
 Mako==1.2.2
 MarkupSafe==2.1.1
 motor==3.0.0
+multidict==6.0.2
 packaging==21.3
 pluggy==1.0.0
 prompt-toolkit==3.0.30
@@ -43,6 +46,7 @@ six==1.16.0
 sniffio==1.2.0
 SQLAlchemy==1.4.39
 starlette==0.19.1
+toml==0.10.2
 tomli==2.0.1
 typing_extensions==4.3.0
 tzdata==2022.1
@@ -52,3 +56,4 @@ uvicorn==0.18.2
 vine==5.0.0
 wcwidth==0.2.5
 wrapt==1.14.1
+yarl==1.8.1
