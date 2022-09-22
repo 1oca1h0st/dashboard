@@ -14,4 +14,4 @@ class PyObjectId(ObjectId):
 
     @classmethod
     def __modify_schema__(cls, field_schema):
-        field_schema.aupdate(type="string")
+        field_schema.update(type="string")
