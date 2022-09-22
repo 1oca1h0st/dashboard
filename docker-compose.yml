@@ -1,4 +1,4 @@
-version: 3.8
+version: "3.8"
 
 services:
   redis:
@@ -8,14 +8,16 @@ services:
     networks:
       - backend
   db:
-    image: maraiadb:10.4.17
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1QAZ2wsx
     ports:
-      - "127.0.0.1:3306:3306"
+      - "127.0.0.1:27017:27017"
     networks:
       - backend
 
 networks:
   frontend:
   backend:
-
-volumes:

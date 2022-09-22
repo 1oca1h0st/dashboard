@@ -1,17 +1,19 @@
-from fastapi import APIRouter, Request, Depends
+from fastapi import APIRouter, Request, Depends, HTTPException, Body
+from fastapi.encoders import jsonable_encoder
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
+from starlette import status
+from starlette.responses import JSONResponse
 
-from core.routes.models import test
-from core.curd.deps import get_db
-from core.curd.demo import get_demo
 from core import schemas
 from core.configs.settings import get_settings
-
+from core.curd.demo import get_demo
+from core.curd.deps import get_db
+from core.db.mongo import mongo
 from core.requests.demo import DemoRequests
-
-from jobs.celery import jobs
+from core.routes.models import test
+from core.schemas.mongo.demo import DemoModel
 from jobs.celery import add
 
 
@@ -45,6 +47,22 @@ async def view_login(request: Request):
 @router.get("/db/{t_id}", response_model=schemas.DemoBase)
 def get_demo_by_id(t_id: int, db: Session = Depends(get_db)):
     return get_demo(db, t_id)
+
+
+@router.get("/mongo/list/{d_id}", response_model=DemoModel)
+async def mongo_list_by_id(d_id: str):
+    if (demo := await mongo["demo"].find_one({"_id": d_id})) is not None:
+        return demo
+
+    raise HTTPException(status_code=404, detail="Demo {} not found!".format(d_id))
+
+
+@router.post("/mongo/add", response_model=DemoModel)
+async def mongo_add_by_id(demo: DemoModel = Body(...)):
+    demo = jsonable_encoder(demo)
+    new_demo = await mongo["demo"].insert_one(demo)
+    created_demo = await mongo["demo"].find_one({"_id": new_demo.inserted_id})
+    return JSONResponse(status_code=status.HTTP_201_CREATED, content=created_demo)
 
 
 @router.post("/validate")
