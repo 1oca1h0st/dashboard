@@ -1,3 +1,5 @@
+from typing import List
+
 from fastapi import APIRouter, Request, Depends, HTTPException, Body
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import HTMLResponse
@@ -6,14 +8,15 @@ from sqlalchemy.orm import Session
 from starlette import status
 from starlette.responses import JSONResponse
 
+import core.schemas.mongo
 from core import schemas
 from core.configs.settings import get_settings
 from core.curd.demo import get_demo
 from core.curd.deps import get_db
 from core.db.mongo import mongo
+from core.models.mongo.demo import DemoModel
 from core.requests.demo import DemoRequests
 from core.routes.models import test
-from core.models.mongo.demo import DemoModel
 from jobs.celery import add
 
 
@@ -55,6 +58,12 @@ async def mongo_list_by_id(d_id: str):
         return demo
 
     raise HTTPException(status_code=404, detail="Demo {} not found!".format(d_id))
+
+
+@router.get("/mongo/list", response_model=List[core.schemas.mongo.DemoBase])
+async def mongo_list_by_id():
+    results = await mongo["demo"].find().to_list(1000)
+    return results
 
 
 @router.post("/mongo/add", response_model=DemoModel)
