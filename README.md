@@ -2,7 +2,10 @@
 
 ## 背景
 
-安全行业小工具太多太杂，完全套用第三方工具，用起来要么是脚本小子，要么用起来各有各的优点和缺点。
+ - 安全行业小工具太多太杂，完全套用第三方工具，用起来要么是脚本小子，要么用起来各有各的优点和缺点。
+ - SOAR的模式使用起来总是不如直接上手写代码快，详情可参考：[一次失败的SOAR产品体验](https://blog.mrtblogs.net/soar/)
+ - 行业内也有很多优秀的产品，例如巡风/Kunpeng/ARL/EasyPen等，但都侧重在PoC上或很久没有维护更新了
+ - 这个系统的目的是为了整合这些优秀的产品，同时提供尽量灵活的配置模式和使用体验
 
 ## 系统架构
 
@@ -23,7 +26,7 @@
 
 组件依赖
 
-- MySQL
+- MySQL / MongoDB(建议)
 - Redis
 
 目录结构
@@ -45,7 +48,7 @@
   - public 引用的第三方资源，编译时不统一打包
 
 
-- workers 命令执行模块 [后续使用celery]
+- workers 命令执行模块 *使用celery对接*
   - assets 资产扫描模块
   - pocs
   - tests 自动化测试文件夹
@@ -55,8 +58,10 @@
 
 ### docker 部署
 
-待定
+``docker-compose up -d``
+
+目前添加了 mongodb 和 redis 镜像
 
 ### 直接部署
 
-待定
+python -m venv venv && source venv/bin/activate && python -m pip install -r requirements.txt
