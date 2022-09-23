@@ -7,10 +7,18 @@ class Settings(BaseSettings):
     SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1qaz2wsx@localhost/fastapi?charset=utf8"
     TEST_ENV: str
 
+    # MONGO_DB settings
     MONGO_DB_HOST: str
     MONGO_DB_NAME: str
     MONGO_DB_USER: str
     MONGO_DB_PWD: str
+
+    # jwt settings
+    # use `openssl rand -hex 32` to generate
+    SECRET_KEY: str
+    ALGORITHM: str = "HS256"
+    # default 7 days
+    ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
 
     class Config:
         """
