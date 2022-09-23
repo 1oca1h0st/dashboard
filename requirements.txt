@@ -45,6 +45,7 @@ pytest==7.1.2
 python-dotenv==0.20.0
 python-jose==3.3.0
 python-masscan==0.1.6
+python-multipart==0.0.5
 python-nmap==0.7.1
 pytz==2022.1
 pytz-deprecation-shim==0.1.0.post0
