@@ -46,4 +46,9 @@ const router = createRouter({
     routes: routes
 })
 
+router.beforeEach((to, from, next) => {
+    document.title = (to.meta.title ? to.meta.title : '') + ' - Dashboard'
+    next()
+})
+
 export default router
