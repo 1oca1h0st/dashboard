@@ -61,6 +61,7 @@
 import "/public/js/tabler.min.js"
 import qs from "qs";
 import request from "../../util/request"
+import router from "@/router/router.ts";
 
 export default {
   name: "Login",
@@ -88,8 +89,12 @@ export default {
           password: this.password
         })
       }).then((res) => {
-        console.log(res.status)
-        console.log(res.data)
+        if (res.status === 200) {
+          localStorage.setItem("token", res.data.access_token)
+          router.push('/')
+        } else if (res.status === 401) {
+          alert(res.data.detail)
+        }
       })
     }
   }

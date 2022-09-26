@@ -26,3 +26,8 @@ async def create(user: Users):
 async def get_user_by_id(uid: PydanticObjectId):
     user = await Users.get(uid)
     return user
+
+
+@router.get("/me")
+async def get_me():
+    return "111"
