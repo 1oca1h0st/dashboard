@@ -9,8 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/node": "^18.7.21",
+    "async-validator": "^4.2.5",
+    "axios": "^0.27.2",
     "babel-polyfill": "^6.26.0",
     "es6-promise-polyfill": "^1.2.0",
+    "qs": "^6.11.0",
     "vue": "^3.2.37",
     "vue-router": "^4.1.2"
   },

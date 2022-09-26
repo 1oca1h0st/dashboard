@@ -7,12 +7,13 @@
       <div class="text-center mb-4">
         <a href="." class="navbar-brand navbar-brand-autodark"><img :src=logo height="36" alt=""></a>
       </div>
-      <form class="card card-md" action="." method="get" autocomplete="off">
+      <div class="card card-md">
         <div class="card-body">
           <h2 class="card-title text-center mb-4">系统登录</h2>
           <div class="mb-3">
             <label class="form-label">用户名</label>
-            <input type="text" name="username" class="form-control" placeholder="请输入用户名...">
+            <input v-model="username" type="text" name="username" class="form-control"
+                   placeholder="请输入用户名...">
           </div>
           <div class="mb-2">
             <label class="form-label">
@@ -22,7 +23,8 @@
                 </span>
             </label>
             <div class="input-group input-group-flat">
-              <input type="password" name="password" class="form-control" placeholder="Password" autocomplete="off">
+              <input v-model="password" type="password" name="password" class="form-control" placeholder="Password"
+                     autocomplete="off" @keyup.enter="submit">
               <span class="input-group-text">
                   <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -41,10 +43,10 @@
             </label>
           </div>
           <div class="form-footer">
-            <button type="submit" class="btn btn-primary w-100">登录</button>
+            <button type="submit" class="btn btn-primary w-100" v-on:click="submit">登录</button>
           </div>
         </div>
-      </form>
+      </div>
       <div class="text-center text-muted mt-3">
         还没有账号？
         <router-link to="register" tabindex="-1">点我注册</router-link>
@@ -56,18 +58,39 @@
 </template>
 
 <script>
+import "/public/js/tabler.min.js"
+import qs from "qs";
+import request from "../../util/request"
+
 export default {
   name: "Login",
   data() {
     return {
-      logo: "img/logo.svg"
+      logo: "img/logo.svg",
+      username: "",
+      password: ""
     }
   },
   mounted() {
     document.getElementsByTagName('body')[0].className = "border-top-wide border-primary d-flex flex-column"
+    document.getElementById('app').className = "page"
   },
   beforeUnmount() {
     document.body.removeAttribute('class')
+  },
+  methods: {
+    submit() {
+      request({
+        url: "/users/login",
+        method: "post",
+        data: qs.stringify({
+          username: this.username,
+          password: this.password
+        })
+      }).then((res) => {
+        console.log(res.status)
+        console.log(res.data)
+      })
+    }
   }
-}
-import "/public/js/tabler.min.js"</script>
+}</script>
