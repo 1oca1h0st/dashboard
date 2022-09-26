@@ -10,23 +10,34 @@ const HomePage = () => import('../components/HomePage.vue')
 const routes = [
     {
         path: '/',
-        component: Login
+        component: Login,
+        meta: {
+            title: "登录"
+        }
     },
     {
         path: '/test1',
-        component: Test1
+        component: Test1,
+        meta: {}
     },
     {
         path: '/test2',
-        component: Test2
+        component: Test2,
+        meta: {}
     },
     {
         path: '/forget_password',
-        component: ForgetPassword
+        component: ForgetPassword,
+        meta: {
+            title: "忘记密码"
+        }
     },
     {
         path: '/register',
-        component: Register
+        component: Register,
+        meta: {
+            title: "注册"
+        }
     }
 ]
 
