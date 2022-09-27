@@ -12,6 +12,7 @@ const routes = [
     {
         path: '/',
         component: HomePage,
+        name: 'home',
         meta: {
             title: "首页",
             auth: true
@@ -29,6 +30,7 @@ const routes = [
     {
         path: '/login',
         component: Login,
+        name: 'login',
         meta: {
             title: '登录',
             auth: false
