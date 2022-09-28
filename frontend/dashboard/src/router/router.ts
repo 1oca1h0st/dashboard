@@ -1,12 +1,13 @@
 import {createRouter, createWebHashHistory} from 'vue-router'
 import jwt_decode from "jwt-decode"
 
+const Base = () => import('../layouts/Base.vue')
+
 const Login = () => import('../components/auth/Login.vue')
 const ForgetPassword = () => import('../components/auth/ForgetPassword.vue')
 const Register = () => import('../components/auth/Register.vue')
-const Test1 = () => import('../components/Test1.vue')
-const Test2 = () => import('../components/Test2.vue')
 const HomePage = () => import('../components/HomePage.vue')
+const ProjectCreate = () => import('../components/project/Create.vue')
 
 const routes = [
     {
@@ -16,13 +17,17 @@ const routes = [
         meta: {
             title: "首页",
             auth: true
-        },
+        }
+    },
+    {
+        path: '/project',
+        component: Base,
         children: [
             {
-                path: 'test2',
-                component: Test2,
+                path: 'create',
+                component: ProjectCreate,
                 meta: {
-                    title: "测试2"
+                    title: "创建项目"
                 }
             }
         ]
