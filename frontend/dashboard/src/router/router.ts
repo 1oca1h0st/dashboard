@@ -67,7 +67,6 @@ router.beforeEach((to, from, next) => {
         // 这里只是尝试解码了jwt，符合标准的就跳转，未真正验证token
         try {
             jwt_decode(jwt)
-            next()
         } catch (e) {
             next({
                 path: '/login',

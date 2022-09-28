@@ -58,7 +58,6 @@
 </template>
 
 <script>
-import "/public/js/tabler.min.js"
 import qs from "qs";
 import request from "../../util/request"
 import router from "@/router/router.ts";

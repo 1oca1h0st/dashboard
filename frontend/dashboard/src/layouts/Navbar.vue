@@ -25,7 +25,41 @@
                   </span>
             </router-link>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+               data-bs-auto-close="false" role="button" aria-expanded="true">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-treemap"
+                         width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                       <path d="M12 4v16"></path>
+                       <path d="M4 15h8"></path>
+                       <path d="M12 12h8"></path>
+                       <path d="M16 12v8"></path>
+                       <path d="M16 16h4"></path>
+                    </svg>
+                  </span>
+              <span class="nav-link-title">
+                    项目管理
+                  </span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-menu-columns">
+                <div class="dropdown-menu-column">
+                  <a class="dropdown-item" href="#">
+                    新建项目
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    查看项目
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                data-bs-auto-close="false" role="button" aria-expanded="false">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -37,7 +71,7 @@
                       <line x1="16" y1="5.25" x2="8" y2="9.75"/></svg>
                   </span>
               <span class="nav-link-title">
-                    任务管理
+                    资产管理
                   </span>
             </a>
             <div class="dropdown-menu">
@@ -146,6 +180,40 @@
             </div>
           </li>
           <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+               data-bs-auto-close="false" role="button" aria-expanded="true">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-treemap"
+                         width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
+                       <path d="M12 4v16"></path>
+                       <path d="M4 15h8"></path>
+                       <path d="M12 12h8"></path>
+                       <path d="M16 12v8"></path>
+                       <path d="M16 16h4"></path>
+                    </svg>
+                  </span>
+              <span class="nav-link-title">
+                    项目管理
+                  </span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-menu-columns">
+                <div class="dropdown-menu-column">
+                  <a class="dropdown-item" href="./layout-horizontal.html">
+                    新建项目
+                  </a>
+                  <a class="dropdown-item" href="./layout-vertical.html">
+                    查看项目
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="./form-elements.html">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -155,54 +223,35 @@
                         d="M20 12v6a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h9"/></svg>
                   </span>
               <span class="nav-link-title">
-                    资产管理
+                    任务管理
                   </span>
             </a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#navbar-extra" data-bs-toggle="dropdown"
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                data-bs-auto-close="false" role="button" aria-expanded="false">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                          stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path
-                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/></svg>
+                        d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/>
+                    </svg>
                   </span>
               <span class="nav-link-title">
                     Poc管理
                   </span>
             </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="./activity.html">
-                Activity
-              </a>
-              <a class="dropdown-item" href="./gallery.html">
-                Gallery
-              </a>
-              <a class="dropdown-item" href="./invoice.html">
-                Invoice
-              </a>
-              <a class="dropdown-item" href="./search-results.html">
-                Search results
-              </a>
-              <a class="dropdown-item" href="./pricing.html">
-                Pricing cards
-              </a>
-              <a class="dropdown-item" href="./users.html">
-                Users
-              </a>
-              <a class="dropdown-item" href="./license.html">
-                License
-              </a>
-              <a class="dropdown-item" href="./music.html">
-                Music
-              </a>
-              <a class="dropdown-item" href="./widgets.html">
-                Widgets
-              </a>
-              <a class="dropdown-item" href="./wizard.html">
-                Wizard
-              </a>
+              <div class="dropdown-menu-columns">
+                <div class="dropdown-menu-column">
+                  <a class="dropdown-item" href="./activity.html">
+                    Nuclei
+                  </a>
+                  <a class="dropdown-item" href="./gallery.html">
+                    Kunpeng
+                  </a>
+                </div>
+              </div>
             </div>
           </li>
           <li class="nav-item">
@@ -220,49 +269,119 @@
                           x="14" y="15" width="6" height="5" rx="2"/></svg>
                   </span>
               <span class="nav-link-title">
-                    系统设置
+                    工具设置
+                  </span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-menu-columns">
+                <div class="dropdown-menu-column">
+                  <a class="dropdown-item" href="#">
+                    域名爆破
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    端口扫描
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    子目录爆破
+                  </a>
+                  <a class="dropdown-item" href="#">
+                    主动爬虫
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+               data-bs-auto-close="false" role="button" aria-expanded="true">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path
+                          d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3
+                          -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0
+                          -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+                    </svg>
+                  </span>
+              <span class="nav-link-title">
+                    代码泄露
                   </span>
             </a>
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
                   <a class="dropdown-item" href="./layout-horizontal.html">
-                    Horizontal
+                    Github监控
                   </a>
                   <a class="dropdown-item" href="./layout-vertical.html">
-                    Vertical
-                  </a>
-                  <a class="dropdown-item" href="./layout-vertical-transparent.html">
-                    Vertical transparent
-                  </a>
-                  <a class="dropdown-item" href="./layout-vertical-right.html">
-                    Right vertical
-                  </a>
-                  <a class="dropdown-item" href="./layout-condensed.html">
-                    Condensed
-                  </a>
-                  <a class="dropdown-item" href="./layout-combo.html">
-                    Combined
+                    Github管理
                   </a>
                 </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+               data-bs-auto-close="false" role="button" aria-expanded="true">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell-ringing" width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path
+                          d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6"></path>
+                      <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
+                      <path d="M21 6.727a11.05 11.05 0 0 0 -2.794 -3.727"></path>
+                      <path d="M3 6.727a11.05 11.05 0 0 1 2.792 -3.727"></path>
+                    </svg>
+                  </span>
+              <span class="nav-link-title">
+                    通知设置
+                  </span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./layout-navbar-dark.html">
-                    Navbar dark
+                  <a class="dropdown-item" href="#">
+                    Webhook
                   </a>
-                  <a class="dropdown-item" href="./layout-navbar-sticky.html">
-                    Navbar sticky
+                  <a class="dropdown-item" href="#">
+                    邮件设置
                   </a>
-                  <a class="dropdown-item" href="./layout-navbar-overlap.html">
-                    Navbar overlap
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+               data-bs-auto-close="false" role="button" aria-expanded="true">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-settings" width="24"
+                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                         stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path
+                          d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"></path>
+                      <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                  </span>
+              <span class="nav-link-title">
+                    系统设置
+                  </span>
+            </a>
+            <div class="dropdown-menu">
+              <div class="dropdown-menu-columns">
+                <div class="dropdown-menu-column">
+                  <a class="dropdown-item" href="#">
+                    用户管理
                   </a>
-                  <a class="dropdown-item" href="./layout-rtl.html">
-                    RTL mode
+                  <a class="dropdown-item" href="#">
+                    权限管理
                   </a>
-                  <a class="dropdown-item" href="./layout-fluid.html">
-                    Fluid
-                  </a>
-                  <a class="dropdown-item" href="./layout-fluid-vertical.html">
-                    Fluid vertical
+                  <a class="dropdown-item" href="#">
+                    日志查看
                   </a>
                 </div>
               </div>
@@ -304,5 +423,7 @@ export default {
 </script>
 
 <style scoped>
-
+.dropdown-menu-column {
+  padding-left: 2rem;
+}
 </style>
