@@ -8,10 +8,10 @@
             <div class="col">
               <!-- Page pre-title -->
               <div class="page-pretitle">
-                Project Create
+                {{ $route.meta.main_title }}
               </div>
-              <h2 class="page-title">
-                创建项目
+              <h2 class="page-title" id="page-title">
+                {{ $route.meta.title }}
               </h2>
             </div>
           </div>
@@ -33,7 +33,7 @@ import Footer from "@/layouts/Footer.vue"
 
 export default {
   name: "Base",
-  components: {Footer, Navbar}
+  components: {Footer, Navbar},
 }
 </script>
 

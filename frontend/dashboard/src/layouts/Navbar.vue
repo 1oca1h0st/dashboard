@@ -8,7 +8,7 @@
       </h1>
       <div class="collapse navbar-collapse" id="navbar-menu">
         <ul class="navbar-nav pt-lg-3">
-          <li class="nav-item active">
+          <li class="nav-item" id="li-home">
             <router-link :to="{name:'home'}" class="nav-link">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -25,7 +25,7 @@
                   </span>
             </router-link>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="li-project">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                data-bs-auto-close="false" role="button" aria-expanded="true">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -46,21 +46,19 @@
                     项目管理
                   </span>
             </a>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" id="div-project">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
                   <router-link :to="{name:'project_create'}" class="dropdown-item">
                     新建项目
                   </router-link>
-                  <a class="dropdown-item" href="#">
-                    查看项目
-                  </a>
+                  <router-link :to="{name:'project_list'}" class="dropdown-item">查看项目</router-link>
                 </div>
               </div>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                data-bs-auto-close="false" role="button" aria-expanded="false">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
@@ -180,41 +178,7 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-               data-bs-auto-close="false" role="button" aria-expanded="true">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chart-treemap"
-                         width="24"
-                         height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                         stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                      <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                       <path d="M12 4v16"></path>
-                       <path d="M4 15h8"></path>
-                       <path d="M12 12h8"></path>
-                       <path d="M16 12v8"></path>
-                       <path d="M16 16h4"></path>
-                    </svg>
-                  </span>
-              <span class="nav-link-title">
-                    项目管理
-                  </span>
-            </a>
-            <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./layout-horizontal.html">
-                    新建项目
-                  </a>
-                  <a class="dropdown-item" href="./layout-vertical.html">
-                    查看项目
-                  </a>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="./form-elements.html">
+            <a class="nav-link" href="">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -244,12 +208,8 @@
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./activity.html">
-                    Nuclei
-                  </a>
-                  <a class="dropdown-item" href="./gallery.html">
-                    Kunpeng
-                  </a>
+                  <router-link to="/poc/nuclei" class="dropdown-item">Nuclei</router-link>
+                  <router-link to="/poc/kunpeng" class="dropdown-item">Kunpeng</router-link>
                 </div>
               </div>
             </div>
@@ -275,23 +235,15 @@
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="#">
-                    域名爆破
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    端口扫描
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    子目录爆破
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    主动爬虫
-                  </a>
+                  <router-link :to="{name:'tools_sub_domain_brute'}" class="dropdown-item">域名爆破</router-link>
+                  <router-link :to="{name:'tools_scan'}" class="dropdown-item">端口扫描</router-link>
+                  <router-link :to="{name:'tools_sub_dir_brute'}" class="dropdown-item">子目录爆破</router-link>
+                  <router-link :to="{name:'tools_crawler'}" class="dropdown-item">主动爬虫</router-link>
                 </div>
               </div>
             </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" id="li-code">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
                data-bs-auto-close="false" role="button" aria-expanded="true">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -309,15 +261,11 @@
                     代码泄露
                   </span>
             </a>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu" id="div-code">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="./layout-horizontal.html">
-                    Github监控
-                  </a>
-                  <a class="dropdown-item" href="./layout-vertical.html">
-                    Github管理
-                  </a>
+                  <router-link :to="{name:'code_monitor'}" class="dropdown-item">Github监控</router-link>
+                  <router-link :to="{name:'code_setting'}" class="dropdown-item">Github管理</router-link>
                 </div>
               </div>
             </div>
@@ -344,12 +292,8 @@
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="#">
-                    Webhook
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    邮件设置
-                  </a>
+                  <router-link :to="{name:'notification_webhook'}" class="dropdown-item">Webhook</router-link>
+                  <router-link :to="{name:'notification_mail'}" class="dropdown-item">邮件设置</router-link>
                 </div>
               </div>
             </div>
@@ -374,21 +318,15 @@
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="#">
-                    用户管理
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    权限管理
-                  </a>
-                  <a class="dropdown-item" href="#">
-                    日志查看
-                  </a>
+                  <router-link :to="{name:'settings_users'}" class="dropdown-item">用户管理</router-link>
+                  <router-link :to="{name:'settings_roles'}" class="dropdown-item">权限管理</router-link>
+                  <router-link :to="{name:'settings_logs'}" class="dropdown-item">日志管理</router-link>
                 </div>
               </div>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./docs/index.html">
+            <a class="nav-link" href="#">
                   <span class="nav-link-icon d-md-none d-lg-inline-block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
@@ -423,7 +361,7 @@ export default {
 </script>
 
 <style scoped>
-.dropdown-menu-column {
+.dropdown-menu-column .dropdown-item {
   padding-left: 2rem;
 }
 </style>
