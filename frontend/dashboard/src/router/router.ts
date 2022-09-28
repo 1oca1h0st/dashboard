@@ -16,7 +16,6 @@ const routes = [
         name: 'home',
         meta: {
             title: "首页",
-            auth: true
         }
     },
     {
@@ -26,6 +25,7 @@ const routes = [
             {
                 path: 'create',
                 component: ProjectCreate,
+                name: 'project_create',
                 meta: {
                     title: "创建项目"
                 }
@@ -67,7 +67,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     document.title = (to.meta.title ? to.meta.title : '') + ' - Dashboard'
     // 判断登录
-    if (to.meta.auth) {
+    if (to.meta.auth !== false) {
         const jwt = localStorage.getItem('token') || ""
         // 这里只是尝试解码了jwt，符合标准的就跳转，未真正验证token
         try {

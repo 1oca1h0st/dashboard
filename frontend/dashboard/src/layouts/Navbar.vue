@@ -49,9 +49,9 @@
             <div class="dropdown-menu">
               <div class="dropdown-menu-columns">
                 <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="#">
+                  <router-link :to="{name:'project_create'}" class="dropdown-item">
                     新建项目
-                  </a>
+                  </router-link>
                   <a class="dropdown-item" href="#">
                     查看项目
                   </a>
