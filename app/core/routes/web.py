@@ -16,7 +16,7 @@ from core.curd.deps import get_db
 from core.db.mongo import mongo
 from core.models.mongo.demo import DemoModel
 from core.requests.demo import DemoRequests
-from core.routes.models import test, users
+from core.routes.models import test, users, scans
 from jobs.celery import add
 
 
@@ -98,3 +98,4 @@ def get_celery_task_by_id(task_id: str):
 
 router.include_router(test.router, prefix="/test", tags=["test"])
 router.include_router(users.router, prefix="/users", tags=["users"])
+router.include_router(scans.router, prefix="/scans", tags=["scans"])
