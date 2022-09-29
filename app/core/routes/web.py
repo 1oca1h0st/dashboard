@@ -17,7 +17,6 @@ from core.db.mongo import mongo
 from core.models.mongo.demo import DemoModel
 from core.requests.demo import DemoRequests
 from core.routes.models import test, users, scans
-from jobs.celery import add
 
 
 def is_auth(request: Request):
@@ -30,6 +29,10 @@ settings = get_settings()
 
 router = APIRouter(dependencies=[Depends(is_auth)])
 templates = Jinja2Templates(directory="views/templates")
+
+router.include_router(test.router, prefix="/test", tags=["test"])
+router.include_router(users.router, prefix="/users", tags=["users"])
+router.include_router(scans.router, prefix="/scans", tags=["scans"])
 
 
 @router.get("/", response_class=HTMLResponse)
@@ -82,20 +85,3 @@ def test_validate(data: DemoRequests):
 @router.get("/cache", tags=["cache"])
 def get_cache():
     return {"msg": settings.TEST_ENV}
-
-
-@router.get("/celery/{a}/{b}", tags=["celery"])
-def test_celery(a: int, b: int):
-    add_job = add.delay(a, b)
-    print(add_job)
-    return {"id": str(add_job)}
-
-
-@router.get("/celery/{task_id}", tags=["celery"])
-def get_celery_task_by_id(task_id: str):
-    print(add.AsyncResult(task_id).status)
-
-
-router.include_router(test.router, prefix="/test", tags=["test"])
-router.include_router(users.router, prefix="/users", tags=["users"])
-router.include_router(scans.router, prefix="/scans", tags=["scans"])
