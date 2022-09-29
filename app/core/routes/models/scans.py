@@ -2,8 +2,10 @@ from fastapi import APIRouter
 from starlette import status
 from starlette.responses import JSONResponse
 
-from core.controllers.scans import sub_domain_brute
+from core.controllers.scans import *
+from core.controllers.tasks import *
 from core.schemas.mongo.domains import DomainIn
+from core.schemas.mongo.ips import IPIn
 
 router = APIRouter()
 
@@ -15,5 +17,38 @@ async def create_domain_brute(domain: DomainIn):
         status_code=status.HTTP_201_CREATED,
         content={
             "task_id": str(task_id)
+        }
+    )
+
+
+@router.post("/ip/create")
+async def create_ip_scan(data: IPIn):
+    ip = data.ip
+    ports = data.ports
+    task = nmap_scan(ip, ports)
+    return JSONResponse(
+        status_code=status.HTTP_201_CREATED,
+        content={
+            "task_id": task.id
+        }
+    )
+
+
+@router.get("/task/status/{task_id}")
+async def get_task_status_by_id(task_id: str):
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={
+            "detail": get_celery_task_status(task_id)
+        }
+    )
+
+
+@router.get("/task/result/{task_id}")
+async def get_task_result_by_id(task_id: str):
+    return JSONResponse(
+        status_code=status.HTTP_200_OK,
+        content={
+            "detail": get_celery_task_result(task_id)
         }
     )
