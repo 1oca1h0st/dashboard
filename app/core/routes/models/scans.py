@@ -25,11 +25,11 @@ async def create_domain_brute(domain: DomainIn):
 async def create_ip_scan(data: IPIn):
     ip = data.ip
     ports = data.ports
-    task = nmap_scan(ip, ports)
+    task_id = await nmap_scan(ip, ports)
     return JSONResponse(
         status_code=status.HTTP_201_CREATED,
         content={
-            "task_id": task.id
+            "task_id": str(task_id)
         }
     )
 

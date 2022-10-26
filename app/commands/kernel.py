@@ -1,7 +1,10 @@
 from datetime import datetime
+
+from apscheduler.executors.pool import ThreadPoolExecutor
 from apscheduler.jobstores.memory import MemoryJobStore
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from apscheduler.executors.pool import ThreadPoolExecutor
+
+from commands.scans import *
 
 
 def func(name):
@@ -14,7 +17,7 @@ task = {
         "default": MemoryJobStore()
     },
     "executors": {
-        "default": ThreadPoolExecutor(10)
+        #"default": ThreadPoolExecutor(10)
     },
     "job_defaults": {
         # 是否合并执行
@@ -25,3 +28,4 @@ task = {
 
 scheduler = AsyncIOScheduler(**task)
 scheduler.add_job(func, "interval", seconds=3, args=["commands"], id="test_job", replace_existing=True)
+scheduler.add_job(get_nmap_scan_status, "interval", seconds=3)
