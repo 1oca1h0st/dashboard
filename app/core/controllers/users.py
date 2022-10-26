@@ -38,6 +38,8 @@ class UsersController:
         encode_jwt = jwt.encode(to_encode, self.SECRET_KEY, algorithm=self.ALGORITHM)
         return encode_jwt
 
+    # 验证用户名密码
+    # TODO 后续增加验证码逻辑
     async def authenticate_user(self, username: str, password: str):
         user = await Users.find_one(Users.name == username)
         if user is not None:

@@ -14,11 +14,12 @@ class BasicAuthBackend(AuthenticationBackend):
             self,
             conn: HTTPConnection,
     ) -> RedirectResponse | None | tuple[AuthCredentials, SimpleUser]:
+        return
+        """
         path = conn.scope["path"]
         print(path)
         if "Authorization" not in conn.headers and path not in ["/"]:
             return RedirectResponse(url="/")
-        """
         auth = conn.headers["Authorization"]
         try:
             scheme, credentials = auth.split()

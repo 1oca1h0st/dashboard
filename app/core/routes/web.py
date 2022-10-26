@@ -1,5 +1,3 @@
-from typing import List
-
 from fastapi import APIRouter, Request, Depends, HTTPException, Body
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import HTMLResponse
@@ -7,6 +5,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from starlette import status
 from starlette.responses import JSONResponse
+from typing import List
 
 import core.schemas.mongo
 from core import schemas

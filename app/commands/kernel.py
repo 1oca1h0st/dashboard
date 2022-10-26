@@ -28,4 +28,4 @@ task = {
 
 scheduler = AsyncIOScheduler(**task)
 scheduler.add_job(func, "interval", seconds=3, args=["commands"], id="test_job", replace_existing=True)
-scheduler.add_job(get_nmap_scan_status, "interval", seconds=3)
+#scheduler.add_job(get_nmap_scan_status, "interval", seconds=3)

@@ -17,6 +17,7 @@ class Users(Document):
         schema_extra = {
             "example": {
                 "name": "abc",
-                "password": "abc"
+                "password": "abc",
+                "email": "abc@abc.com"
             }
         }
