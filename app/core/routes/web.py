@@ -1,11 +1,11 @@
+from typing import List
+
 from fastapi import APIRouter, Request, Depends, HTTPException, Body
 from fastapi.encoders import jsonable_encoder
 from fastapi.responses import HTMLResponse
-from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from starlette import status
 from starlette.responses import JSONResponse
-from typing import List
 
 import core.schemas.mongo
 from core import schemas
@@ -15,7 +15,8 @@ from core.curd.deps import get_db
 from core.db.mongo import mongo
 from core.models.mongo.demo import DemoModel
 from core.requests.demo import DemoRequests
-from core.routes.models import test, users, scans
+from core.routes import deps
+from core.routes.models import users, scans
 
 
 def is_auth(request: Request):
@@ -26,17 +27,20 @@ def is_auth(request: Request):
 
 settings = get_settings()
 
-router = APIRouter(dependencies=[Depends(is_auth)])
-templates = Jinja2Templates(directory="views/templates")
+router = APIRouter()
+# 使用 Jinja2 模板的示例
+# templates = Jinja2Templates(directory="views/templates")
 
-router.include_router(test.router, prefix="/test", tags=["test"])
+# router.include_router(test.router, prefix="/test", tags=["test"])
 router.include_router(users.router, prefix="/users", tags=["users"])
-router.include_router(scans.router, prefix="/scans", tags=["scans"])
+router.include_router(scans.router, prefix="/scans", tags=["scans"], dependencies=[Depends(deps.get_current_user)])
 
 
 @router.get("/", response_class=HTMLResponse)
 async def index(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return {"message": "pong"}
+    # 使用 Jinja2 模板，可在函数中直接返回 views
+    # return templates.TemplateResponse("index.html", {"request": request})
 
 
 @router.get("/ping")
@@ -44,21 +48,26 @@ async def ping_pong():
     return {"message": "pong"}
 
 
-@router.get("/login", response_class=HTMLResponse)
-async def view_login(request: Request):
-    return templates.TemplateResponse("auth/login.html", {"request": request})
-
-
 @router.get("/db/{t_id}", response_model=schemas.DemoBase, tags=["mysql"])
 def get_demo_by_id(t_id: int, db: Session = Depends(get_db)):
+    """
+    使用 MySQL 的示例，使用 id 查询数据并返回
+    :param t_id:
+    :param db:
+    :return:
+    """
     return get_demo(db, t_id)
 
 
 @router.get("/mongo/list/{d_id}", response_model=DemoModel, tags=["mongo"])
 async def mongo_list_by_id(d_id: str):
+    """
+    使用 MongoDB 的示例
+    :param d_id: 数据库中的ID，此例使用 demo 表
+    :return:
+    """
     if (demo := await mongo["demo"].find_one({"_id": d_id})) is not None:
         return demo
-
     raise HTTPException(status_code=404, detail="Demo {} not found!".format(d_id))
 
 
