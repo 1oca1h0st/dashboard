@@ -8,7 +8,7 @@ class Domain(Document):
         name = "domains"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "domain": "example.com"
             }

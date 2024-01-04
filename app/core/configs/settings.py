@@ -1,11 +1,15 @@
 from functools import lru_cache
 
-from pydantic import BaseSettings
+from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:1qaz2wsx@localhost/fastapi?charset=utf8"
+    SQLALCHEMY_DATABASE_URI: str = "mysql+pymysql://root:1qaz2wsx@localhost/fastapi?charset=utf8"
     TEST_ENV: str
+
+    DB_NAME: str
+    DB_USER: str
+    DB_PWD: str
 
     # MONGO_DB settings
     MONGO_DB_HOST: str
@@ -20,13 +24,15 @@ class Settings(BaseSettings):
     # default 7 days
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
 
+    AWVS_TOKEN: str
+
     class Config:
         """
         使用 pydantic-dotenv 读取 .env 文件
         1. 变量大小写不敏感
         2. 不支持中文
         """
-        env_file = ".env"
+        env_file: str = ".env"
 
 
 settings = Settings()

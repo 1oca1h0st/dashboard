@@ -356,6 +356,14 @@ export default {
     return {
       logo: "img/logo-white.svg"
     }
+  },
+  methods: {
+    getMe: function () {
+      console.log("111")
+    }
+  },
+  created() {
+    this.getMe()
   }
 }
 </script>

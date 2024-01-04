@@ -9,7 +9,7 @@ class DemoBase(BaseModel):
 
     class Config:
         # 支持别名，使用alias进行配置
-        allow_population_by_field_name = True
+        populate_by_name = True
         # 支持嵌套python class类型
         arbitrary_types_allowed = True
         json_encoders = {ObjectId: str}
